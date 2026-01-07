@@ -1,4 +1,4 @@
-import { Outlet } from '@tanstack/react-router';
+import { type ReactNode } from 'react';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -11,7 +11,7 @@ import { Separator } from '~/components/ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '~/components/ui/sidebar';
 import { AppSidebar } from './app-sidebar';
 
-export function LayoutWithSidebar() {
+export function LayoutWithSidebar({ children }: { children: ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -36,7 +36,7 @@ export function LayoutWithSidebar() {
           </div>
         </header>
 
-        <Outlet />
+        {children}
         {/*
           <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
             <div className="grid auto-rows-min gap-4 md:grid-cols-3">
