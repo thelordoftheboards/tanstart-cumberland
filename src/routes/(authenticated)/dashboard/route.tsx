@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router';
-import { LayoutWithSidebar } from '~/main-sidebar/components/layout-with-sidebar';
+import { LayoutWithSidebar } from '~/base-nav-and-auth/components/layout-with-sidebar';
 
 export const Route = createFileRoute('/(authenticated)/dashboard')({
   component: DashboardLayout,

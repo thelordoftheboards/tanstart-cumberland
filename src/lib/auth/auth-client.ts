@@ -1,4 +1,6 @@
+import { adminClient, multiSessionClient, organizationClient, twoFactorClient } from 'better-auth/client/plugins';
 import { createAuthClient } from 'better-auth/react';
+import { ac, roles } from '~/base-nav-and-auth-config/lib/auth/permissions';
 
 /**
  * Extracts the base URL (protocol + host) from the current browser URL
@@ -19,8 +21,27 @@ function getCurrentBaseUrl(): string {
   return process.env.SERVER_URL;
 }
 
-const authClient = createAuthClient({
+export const authClient = createAuthClient({
   baseURL: getCurrentBaseUrl(), // Replaces the traditional env.VITE_SERVER_URL
+
+  plugins: [
+    twoFactorClient(),
+
+    adminClient({
+      ac,
+      roles,
+    }),
+
+    organizationClient(),
+
+    // TODO // Configure emailOTP plugin - Send verification email
+    //emailOTPClient(),
+
+    // TODO // Configure magic link client for auth
+    //  magicLinkClient(),
+
+    multiSessionClient(),
+  ],
 });
 
-export default authClient;
+export type AuthClient = ReturnType<typeof createAuthClient>;

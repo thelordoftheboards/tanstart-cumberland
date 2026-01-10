@@ -17,6 +17,10 @@ import { Route as authPagesLoginRouteImport } from './routes/(auth-pages)/login'
 import { Route as authenticatedDashboardRouteRouteImport } from './routes/(authenticated)/dashboard/route'
 import { Route as authenticatedDashboardIndexRouteImport } from './routes/(authenticated)/dashboard/index'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as authenticatedDashboardAdminIndexRouteImport } from './routes/(authenticated)/dashboard/admin/index'
+import { Route as authenticatedDashboardAccountIndexRouteImport } from './routes/(authenticated)/dashboard/account/index'
+import { Route as authenticatedDashboardCumberlandExampleLayoutRouteImport } from './routes/(authenticated)/dashboard/cumberland/example-layout'
+import { Route as authenticatedDashboardAdminUsersRouteImport } from './routes/(authenticated)/dashboard/admin/users'
 
 const authenticatedRouteRoute = authenticatedRouteRouteImport.update({
   id: '/(authenticated)',
@@ -58,6 +62,30 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const authenticatedDashboardAdminIndexRoute =
+  authenticatedDashboardAdminIndexRouteImport.update({
+    id: '/admin/',
+    path: '/admin/',
+    getParentRoute: () => authenticatedDashboardRouteRoute,
+  } as any)
+const authenticatedDashboardAccountIndexRoute =
+  authenticatedDashboardAccountIndexRouteImport.update({
+    id: '/account/',
+    path: '/account/',
+    getParentRoute: () => authenticatedDashboardRouteRoute,
+  } as any)
+const authenticatedDashboardCumberlandExampleLayoutRoute =
+  authenticatedDashboardCumberlandExampleLayoutRouteImport.update({
+    id: '/cumberland/example-layout',
+    path: '/cumberland/example-layout',
+    getParentRoute: () => authenticatedDashboardRouteRoute,
+  } as any)
+const authenticatedDashboardAdminUsersRoute =
+  authenticatedDashboardAdminUsersRouteImport.update({
+    id: '/admin/users',
+    path: '/admin/users',
+    getParentRoute: () => authenticatedDashboardRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -66,6 +94,10 @@ export interface FileRoutesByFullPath {
   '/signup': typeof authPagesSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/': typeof authenticatedDashboardIndexRoute
+  '/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
+  '/dashboard/cumberland/example-layout': typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  '/dashboard/account': typeof authenticatedDashboardAccountIndexRoute
+  '/dashboard/admin': typeof authenticatedDashboardAdminIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -73,6 +105,10 @@ export interface FileRoutesByTo {
   '/signup': typeof authPagesSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard': typeof authenticatedDashboardIndexRoute
+  '/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
+  '/dashboard/cumberland/example-layout': typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  '/dashboard/account': typeof authenticatedDashboardAccountIndexRoute
+  '/dashboard/admin': typeof authenticatedDashboardAdminIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -84,6 +120,10 @@ export interface FileRoutesById {
   '/(auth-pages)/signup': typeof authPagesSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/(authenticated)/dashboard/': typeof authenticatedDashboardIndexRoute
+  '/(authenticated)/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
+  '/(authenticated)/dashboard/cumberland/example-layout': typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  '/(authenticated)/dashboard/account/': typeof authenticatedDashboardAccountIndexRoute
+  '/(authenticated)/dashboard/admin/': typeof authenticatedDashboardAdminIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -94,8 +134,21 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/auth/$'
     | '/dashboard/'
+    | '/dashboard/admin/users'
+    | '/dashboard/cumberland/example-layout'
+    | '/dashboard/account'
+    | '/dashboard/admin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/signup' | '/api/auth/$' | '/dashboard'
+  to:
+    | '/'
+    | '/login'
+    | '/signup'
+    | '/api/auth/$'
+    | '/dashboard'
+    | '/dashboard/admin/users'
+    | '/dashboard/cumberland/example-layout'
+    | '/dashboard/account'
+    | '/dashboard/admin'
   id:
     | '__root__'
     | '/'
@@ -106,6 +159,10 @@ export interface FileRouteTypes {
     | '/(auth-pages)/signup'
     | '/api/auth/$'
     | '/(authenticated)/dashboard/'
+    | '/(authenticated)/dashboard/admin/users'
+    | '/(authenticated)/dashboard/cumberland/example-layout'
+    | '/(authenticated)/dashboard/account/'
+    | '/(authenticated)/dashboard/admin/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -173,6 +230,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/(authenticated)/dashboard/admin/': {
+      id: '/(authenticated)/dashboard/admin/'
+      path: '/admin'
+      fullPath: '/dashboard/admin'
+      preLoaderRoute: typeof authenticatedDashboardAdminIndexRouteImport
+      parentRoute: typeof authenticatedDashboardRouteRoute
+    }
+    '/(authenticated)/dashboard/account/': {
+      id: '/(authenticated)/dashboard/account/'
+      path: '/account'
+      fullPath: '/dashboard/account'
+      preLoaderRoute: typeof authenticatedDashboardAccountIndexRouteImport
+      parentRoute: typeof authenticatedDashboardRouteRoute
+    }
+    '/(authenticated)/dashboard/cumberland/example-layout': {
+      id: '/(authenticated)/dashboard/cumberland/example-layout'
+      path: '/cumberland/example-layout'
+      fullPath: '/dashboard/cumberland/example-layout'
+      preLoaderRoute: typeof authenticatedDashboardCumberlandExampleLayoutRouteImport
+      parentRoute: typeof authenticatedDashboardRouteRoute
+    }
+    '/(authenticated)/dashboard/admin/users': {
+      id: '/(authenticated)/dashboard/admin/users'
+      path: '/admin/users'
+      fullPath: '/dashboard/admin/users'
+      preLoaderRoute: typeof authenticatedDashboardAdminUsersRouteImport
+      parentRoute: typeof authenticatedDashboardRouteRoute
+    }
   }
 }
 
@@ -192,11 +277,23 @@ const authPagesRouteRouteWithChildren = authPagesRouteRoute._addFileChildren(
 
 interface authenticatedDashboardRouteRouteChildren {
   authenticatedDashboardIndexRoute: typeof authenticatedDashboardIndexRoute
+  authenticatedDashboardAdminUsersRoute: typeof authenticatedDashboardAdminUsersRoute
+  authenticatedDashboardCumberlandExampleLayoutRoute: typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  authenticatedDashboardAccountIndexRoute: typeof authenticatedDashboardAccountIndexRoute
+  authenticatedDashboardAdminIndexRoute: typeof authenticatedDashboardAdminIndexRoute
 }
 
 const authenticatedDashboardRouteRouteChildren: authenticatedDashboardRouteRouteChildren =
   {
     authenticatedDashboardIndexRoute: authenticatedDashboardIndexRoute,
+    authenticatedDashboardAdminUsersRoute:
+      authenticatedDashboardAdminUsersRoute,
+    authenticatedDashboardCumberlandExampleLayoutRoute:
+      authenticatedDashboardCumberlandExampleLayoutRoute,
+    authenticatedDashboardAccountIndexRoute:
+      authenticatedDashboardAccountIndexRoute,
+    authenticatedDashboardAdminIndexRoute:
+      authenticatedDashboardAdminIndexRoute,
   }
 
 const authenticatedDashboardRouteRouteWithChildren =

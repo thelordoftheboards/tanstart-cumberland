@@ -45,6 +45,7 @@ export function NavMain({
               <SidebarMenuSub>
                 {item.items?.map((subItem) => (
                   <SidebarMenuSubItem key={subItem.title}>
+                    {/** biome-ignore lint/a11y/useAnchorContent: Allow */}
                     <SidebarMenuSubButton render={<a href={subItem.url} />}>
                       <span>{subItem.title}</span>
                     </SidebarMenuSubButton>

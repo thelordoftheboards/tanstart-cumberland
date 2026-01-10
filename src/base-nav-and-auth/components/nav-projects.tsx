@@ -33,6 +33,7 @@ export function NavProjects({
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
+            {/** biome-ignore lint/a11y/useAnchorContent: Allow */}
             <SidebarMenuButton render={<a href={item.url} />}>
               <item.icon />
               <span>{item.name}</span>

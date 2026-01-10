@@ -83,7 +83,7 @@ const techStack: {
   },
 ];
 
-export function HomePage() {
+export function PageHome() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (

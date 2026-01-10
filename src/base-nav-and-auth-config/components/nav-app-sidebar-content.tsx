@@ -1,64 +1,28 @@
-import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map as IconMap,
-  PieChart,
-  Settings2,
-  SquareTerminal,
-} from 'lucide-react';
-import React from 'react';
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '~/components/ui/sidebar';
-import { NavMain } from './nav-main';
-import { NavProjects } from './nav-projects';
-import { NavUser } from './nav-user';
-import { TeamSwitcher } from './team-switcher';
+import { BookOpen, Bot, Frame, Map as IconMap, PieChart, Settings2, SquareTerminal } from 'lucide-react';
+import { SidebarContent } from '~/components/ui/sidebar';
+import { NavMain } from '../../base-nav-and-auth/components/nav-main';
+import { NavProjects } from '../../base-nav-and-auth/components/nav-projects';
 
 // This is sample data.
 const data = {
-  user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
-  teams: [
-    {
-      name: 'Acme Inc',
-      logo: GalleryVerticalEnd,
-      plan: 'Enterprise',
-    },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
-    },
-    {
-      name: 'Evil Corp.',
-      logo: Command,
-      plan: 'Free',
-    },
-  ],
   navMain: [
     {
-      title: 'Playground',
+      title: 'Cumberland',
       url: '#',
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: 'History',
-          url: '#',
+          title: 'Website Index',
+          url: '/',
         },
         {
-          title: 'Starred',
-          url: '#',
+          title: 'Dashboard Index',
+          url: '/dashboard/',
         },
         {
-          title: 'Settings',
-          url: '#',
+          title: 'Layout Example',
+          url: '/dashboard/cumberland/example-layout',
         },
       ],
     },
@@ -147,20 +111,11 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function NavAppSidebarContent() {
   return (
-    <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
-      </SidebarHeader>
-      <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
-      </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
-      <SidebarRail />
-    </Sidebar>
+    <SidebarContent>
+      <NavMain items={data.navMain} />
+      <NavProjects projects={data.projects} />
+    </SidebarContent>
   );
 }
