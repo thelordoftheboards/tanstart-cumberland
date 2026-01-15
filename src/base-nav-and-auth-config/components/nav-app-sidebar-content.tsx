@@ -1,11 +1,11 @@
 import { BookOpen, Bot, Frame, Map as IconMap, PieChart, Settings2, SquareTerminal } from 'lucide-react';
 import { SidebarContent } from '~/components/ui/sidebar';
-import { NavMain } from '../../base-nav-and-auth/components/nav-main';
-import { NavProjects } from '../../base-nav-and-auth/components/nav-projects';
+import { NavAppSidebarItemMenu } from '../../base-nav-and-auth/components/nav-app-side-bar-item-menu';
+import { NavAppSidebarItemProject } from '../../base-nav-and-auth/components/nav-app-side-bar-item-project';
 
 // This is sample data.
 const data = {
-  navMain: [
+  NavAppSidebarItemMenu: [
     {
       title: 'Cumberland',
       url: '#',
@@ -114,8 +114,8 @@ const data = {
 export function NavAppSidebarContent() {
   return (
     <SidebarContent>
-      <NavMain items={data.navMain} />
-      <NavProjects projects={data.projects} />
+      <NavAppSidebarItemMenu items={data.NavAppSidebarItemMenu} />
+      <NavAppSidebarItemProject projects={data.projects} />
     </SidebarContent>
   );
 }

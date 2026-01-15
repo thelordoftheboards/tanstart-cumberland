@@ -1,4 +1,4 @@
-import { NavHeaderBreadcrumbs } from '~/base-nav-and-auth/components/nav-header-breadcrumbs';
+import { NavHeaderBreadcrumbs } from '~/base-nav-and-auth/components/layout-elements';
 import { SelectUserType } from '~/lib/db/schema/auth.schema';
 
 export function PageDashboardIndex({ user }: { user: SelectUserType }) {

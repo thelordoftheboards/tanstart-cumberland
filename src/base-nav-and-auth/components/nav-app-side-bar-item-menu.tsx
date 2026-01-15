@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { ChevronRight, type LucideIcon } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '~/components/ui/collapsible';
 import {
@@ -11,7 +12,7 @@ import {
   SidebarMenuSubItem,
 } from '~/components/ui/sidebar';
 
-export function NavMain({
+export function NavAppSidebarItemMenu({
   items,
 }: {
   items: {
@@ -45,8 +46,7 @@ export function NavMain({
               <SidebarMenuSub>
                 {item.items?.map((subItem) => (
                   <SidebarMenuSubItem key={subItem.title}>
-                    {/** biome-ignore lint/a11y/useAnchorContent: Allow */}
-                    <SidebarMenuSubButton render={<a href={subItem.url} />}>
+                    <SidebarMenuSubButton render={<Link to={subItem.url} />}>
                       <span>{subItem.title}</span>
                     </SidebarMenuSubButton>
                   </SidebarMenuSubItem>

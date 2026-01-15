@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router';
 import { Folder, Forward, type LucideIcon, MoreHorizontal, Trash2 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -16,7 +17,7 @@ import {
   useSidebar,
 } from '~/components/ui/sidebar';
 
-export function NavProjects({
+export function NavAppSidebarItemProject({
   projects,
 }: {
   projects: {
@@ -33,8 +34,7 @@ export function NavProjects({
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
-            {/** biome-ignore lint/a11y/useAnchorContent: Allow */}
-            <SidebarMenuButton render={<a href={item.url} />}>
+            <SidebarMenuButton render={<Link to={item.url} />}>
               <item.icon />
               <span>{item.name}</span>
             </SidebarMenuButton>
