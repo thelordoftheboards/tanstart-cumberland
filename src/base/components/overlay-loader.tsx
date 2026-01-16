@@ -29,7 +29,7 @@ export function OverlayLoader({
   const backdrops = {
     light: 'bg-white/80',
     dark: 'bg-black/50',
-    blur: 'bg-white/80 backdrop-blur-sm',
+    blur: 'bg-white/90',
   };
 
   return (
@@ -67,13 +67,7 @@ export function ComponentOverlayLoader({
   };
 
   return (
-    <div
-      className={cn(
-        'absolute inset-0 z-10 flex items-center justify-center',
-        'bg-background/80 backdrop-blur-sm',
-        className
-      )}
-    >
+    <div className={cn('absolute inset-0 z-10 flex items-center justify-center', 'bg-background/90', className)}>
       <div className="flex flex-col items-center gap-2">
         <Loader2 className={cn('animate-spin text-primary', spinnerSizes[size])} />
         {message && <p className="font-medium text-muted-foreground text-xs">{message}</p>}

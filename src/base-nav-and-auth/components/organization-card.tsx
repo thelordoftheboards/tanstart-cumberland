@@ -5,10 +5,6 @@ import { toast } from 'sonner';
 import z from 'zod';
 import CopyToClipboardButton from '~/base/components/copy-to-clipboard-button';
 import { FormField } from '~/base/components/form-field';
-import { useAppForm } from '~/base/hooks/form';
-import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
-import { Button } from '~/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import {
   Dialog,
   DialogClose,
@@ -18,7 +14,11 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '~/components/ui/dialog';
+} from '~/base/components/ui/dialog';
+import { useAppForm } from '~/base/hooks/form';
+import { Avatar, AvatarFallback, AvatarImage } from '~/components/ui/avatar';
+import { Button } from '~/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card';
 import {
   DropdownMenu,
   DropdownMenuContent,

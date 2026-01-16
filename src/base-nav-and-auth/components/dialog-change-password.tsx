@@ -3,9 +3,6 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import z from 'zod';
 import { FormFieldPassword } from '~/base/components/form-field-password';
-import { useAppForm } from '~/base/hooks/form';
-import { Button } from '~/components/ui/button';
-import { Checkbox } from '~/components/ui/checkbox';
 import {
   Dialog,
   DialogContent,
@@ -14,7 +11,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '~/components/ui/dialog';
+} from '~/base/components/ui/dialog';
+import { useAppForm } from '~/base/hooks/form';
+import { Button } from '~/components/ui/button';
+import { Checkbox } from '~/components/ui/checkbox';
 import { authClient } from '~/lib/auth/auth-client';
 
 const changePasswordSchema = z

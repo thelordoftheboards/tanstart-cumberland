@@ -4,9 +4,6 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import z from 'zod';
 import { FormField } from '~/base/components/form-field';
-import { useAppForm } from '~/base/hooks/form';
-import { convertImageToBase64 } from '~/base/utils/convert-image-to-base-64';
-import { Button } from '~/components/ui/button';
 import {
   Dialog,
   DialogContent,
@@ -15,7 +12,10 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '~/components/ui/dialog';
+} from '~/base/components/ui/dialog';
+import { useAppForm } from '~/base/hooks/form';
+import { convertImageToBase64 } from '~/base/utils/convert-image-to-base-64';
+import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
 import { Label } from '~/components/ui/label';
 import { authClient } from '~/lib/auth/auth-client';
