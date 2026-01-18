@@ -19,7 +19,9 @@ import { Route as authenticatedDashboardIndexRouteImport } from './routes/(authe
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as authenticatedDashboardAdminIndexRouteImport } from './routes/(authenticated)/dashboard/admin/index'
 import { Route as authenticatedDashboardAccountIndexRouteImport } from './routes/(authenticated)/dashboard/account/index'
-import { Route as authenticatedDashboardCumberlandExampleLayoutRouteImport } from './routes/(authenticated)/dashboard/cumberland/example-layout'
+import { Route as authenticatedDashboardCumberlandExampleLayout3RouteImport } from './routes/(authenticated)/dashboard/cumberland/example-layout-3'
+import { Route as authenticatedDashboardCumberlandExampleLayout2RouteImport } from './routes/(authenticated)/dashboard/cumberland/example-layout-2'
+import { Route as authenticatedDashboardCumberlandExampleLayout1RouteImport } from './routes/(authenticated)/dashboard/cumberland/example-layout-1'
 import { Route as authenticatedDashboardAdminUsersRouteImport } from './routes/(authenticated)/dashboard/admin/users'
 
 const authenticatedRouteRoute = authenticatedRouteRouteImport.update({
@@ -74,10 +76,22 @@ const authenticatedDashboardAccountIndexRoute =
     path: '/account/',
     getParentRoute: () => authenticatedDashboardRouteRoute,
   } as any)
-const authenticatedDashboardCumberlandExampleLayoutRoute =
-  authenticatedDashboardCumberlandExampleLayoutRouteImport.update({
-    id: '/cumberland/example-layout',
-    path: '/cumberland/example-layout',
+const authenticatedDashboardCumberlandExampleLayout3Route =
+  authenticatedDashboardCumberlandExampleLayout3RouteImport.update({
+    id: '/cumberland/example-layout-3',
+    path: '/cumberland/example-layout-3',
+    getParentRoute: () => authenticatedDashboardRouteRoute,
+  } as any)
+const authenticatedDashboardCumberlandExampleLayout2Route =
+  authenticatedDashboardCumberlandExampleLayout2RouteImport.update({
+    id: '/cumberland/example-layout-2',
+    path: '/cumberland/example-layout-2',
+    getParentRoute: () => authenticatedDashboardRouteRoute,
+  } as any)
+const authenticatedDashboardCumberlandExampleLayout1Route =
+  authenticatedDashboardCumberlandExampleLayout1RouteImport.update({
+    id: '/cumberland/example-layout-1',
+    path: '/cumberland/example-layout-1',
     getParentRoute: () => authenticatedDashboardRouteRoute,
   } as any)
 const authenticatedDashboardAdminUsersRoute =
@@ -95,7 +109,9 @@ export interface FileRoutesByFullPath {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/': typeof authenticatedDashboardIndexRoute
   '/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
-  '/dashboard/cumberland/example-layout': typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  '/dashboard/cumberland/example-layout-1': typeof authenticatedDashboardCumberlandExampleLayout1Route
+  '/dashboard/cumberland/example-layout-2': typeof authenticatedDashboardCumberlandExampleLayout2Route
+  '/dashboard/cumberland/example-layout-3': typeof authenticatedDashboardCumberlandExampleLayout3Route
   '/dashboard/account': typeof authenticatedDashboardAccountIndexRoute
   '/dashboard/admin': typeof authenticatedDashboardAdminIndexRoute
 }
@@ -106,7 +122,9 @@ export interface FileRoutesByTo {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard': typeof authenticatedDashboardIndexRoute
   '/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
-  '/dashboard/cumberland/example-layout': typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  '/dashboard/cumberland/example-layout-1': typeof authenticatedDashboardCumberlandExampleLayout1Route
+  '/dashboard/cumberland/example-layout-2': typeof authenticatedDashboardCumberlandExampleLayout2Route
+  '/dashboard/cumberland/example-layout-3': typeof authenticatedDashboardCumberlandExampleLayout3Route
   '/dashboard/account': typeof authenticatedDashboardAccountIndexRoute
   '/dashboard/admin': typeof authenticatedDashboardAdminIndexRoute
 }
@@ -121,7 +139,9 @@ export interface FileRoutesById {
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/(authenticated)/dashboard/': typeof authenticatedDashboardIndexRoute
   '/(authenticated)/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
-  '/(authenticated)/dashboard/cumberland/example-layout': typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  '/(authenticated)/dashboard/cumberland/example-layout-1': typeof authenticatedDashboardCumberlandExampleLayout1Route
+  '/(authenticated)/dashboard/cumberland/example-layout-2': typeof authenticatedDashboardCumberlandExampleLayout2Route
+  '/(authenticated)/dashboard/cumberland/example-layout-3': typeof authenticatedDashboardCumberlandExampleLayout3Route
   '/(authenticated)/dashboard/account/': typeof authenticatedDashboardAccountIndexRoute
   '/(authenticated)/dashboard/admin/': typeof authenticatedDashboardAdminIndexRoute
 }
@@ -135,7 +155,9 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/dashboard/'
     | '/dashboard/admin/users'
-    | '/dashboard/cumberland/example-layout'
+    | '/dashboard/cumberland/example-layout-1'
+    | '/dashboard/cumberland/example-layout-2'
+    | '/dashboard/cumberland/example-layout-3'
     | '/dashboard/account'
     | '/dashboard/admin'
   fileRoutesByTo: FileRoutesByTo
@@ -146,7 +168,9 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/dashboard'
     | '/dashboard/admin/users'
-    | '/dashboard/cumberland/example-layout'
+    | '/dashboard/cumberland/example-layout-1'
+    | '/dashboard/cumberland/example-layout-2'
+    | '/dashboard/cumberland/example-layout-3'
     | '/dashboard/account'
     | '/dashboard/admin'
   id:
@@ -160,7 +184,9 @@ export interface FileRouteTypes {
     | '/api/auth/$'
     | '/(authenticated)/dashboard/'
     | '/(authenticated)/dashboard/admin/users'
-    | '/(authenticated)/dashboard/cumberland/example-layout'
+    | '/(authenticated)/dashboard/cumberland/example-layout-1'
+    | '/(authenticated)/dashboard/cumberland/example-layout-2'
+    | '/(authenticated)/dashboard/cumberland/example-layout-3'
     | '/(authenticated)/dashboard/account/'
     | '/(authenticated)/dashboard/admin/'
   fileRoutesById: FileRoutesById
@@ -244,11 +270,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authenticatedDashboardAccountIndexRouteImport
       parentRoute: typeof authenticatedDashboardRouteRoute
     }
-    '/(authenticated)/dashboard/cumberland/example-layout': {
-      id: '/(authenticated)/dashboard/cumberland/example-layout'
-      path: '/cumberland/example-layout'
-      fullPath: '/dashboard/cumberland/example-layout'
-      preLoaderRoute: typeof authenticatedDashboardCumberlandExampleLayoutRouteImport
+    '/(authenticated)/dashboard/cumberland/example-layout-3': {
+      id: '/(authenticated)/dashboard/cumberland/example-layout-3'
+      path: '/cumberland/example-layout-3'
+      fullPath: '/dashboard/cumberland/example-layout-3'
+      preLoaderRoute: typeof authenticatedDashboardCumberlandExampleLayout3RouteImport
+      parentRoute: typeof authenticatedDashboardRouteRoute
+    }
+    '/(authenticated)/dashboard/cumberland/example-layout-2': {
+      id: '/(authenticated)/dashboard/cumberland/example-layout-2'
+      path: '/cumberland/example-layout-2'
+      fullPath: '/dashboard/cumberland/example-layout-2'
+      preLoaderRoute: typeof authenticatedDashboardCumberlandExampleLayout2RouteImport
+      parentRoute: typeof authenticatedDashboardRouteRoute
+    }
+    '/(authenticated)/dashboard/cumberland/example-layout-1': {
+      id: '/(authenticated)/dashboard/cumberland/example-layout-1'
+      path: '/cumberland/example-layout-1'
+      fullPath: '/dashboard/cumberland/example-layout-1'
+      preLoaderRoute: typeof authenticatedDashboardCumberlandExampleLayout1RouteImport
       parentRoute: typeof authenticatedDashboardRouteRoute
     }
     '/(authenticated)/dashboard/admin/users': {
@@ -278,7 +318,9 @@ const authPagesRouteRouteWithChildren = authPagesRouteRoute._addFileChildren(
 interface authenticatedDashboardRouteRouteChildren {
   authenticatedDashboardIndexRoute: typeof authenticatedDashboardIndexRoute
   authenticatedDashboardAdminUsersRoute: typeof authenticatedDashboardAdminUsersRoute
-  authenticatedDashboardCumberlandExampleLayoutRoute: typeof authenticatedDashboardCumberlandExampleLayoutRoute
+  authenticatedDashboardCumberlandExampleLayout1Route: typeof authenticatedDashboardCumberlandExampleLayout1Route
+  authenticatedDashboardCumberlandExampleLayout2Route: typeof authenticatedDashboardCumberlandExampleLayout2Route
+  authenticatedDashboardCumberlandExampleLayout3Route: typeof authenticatedDashboardCumberlandExampleLayout3Route
   authenticatedDashboardAccountIndexRoute: typeof authenticatedDashboardAccountIndexRoute
   authenticatedDashboardAdminIndexRoute: typeof authenticatedDashboardAdminIndexRoute
 }
@@ -288,8 +330,12 @@ const authenticatedDashboardRouteRouteChildren: authenticatedDashboardRouteRoute
     authenticatedDashboardIndexRoute: authenticatedDashboardIndexRoute,
     authenticatedDashboardAdminUsersRoute:
       authenticatedDashboardAdminUsersRoute,
-    authenticatedDashboardCumberlandExampleLayoutRoute:
-      authenticatedDashboardCumberlandExampleLayoutRoute,
+    authenticatedDashboardCumberlandExampleLayout1Route:
+      authenticatedDashboardCumberlandExampleLayout1Route,
+    authenticatedDashboardCumberlandExampleLayout2Route:
+      authenticatedDashboardCumberlandExampleLayout2Route,
+    authenticatedDashboardCumberlandExampleLayout3Route:
+      authenticatedDashboardCumberlandExampleLayout3Route,
     authenticatedDashboardAccountIndexRoute:
       authenticatedDashboardAccountIndexRoute,
     authenticatedDashboardAdminIndexRoute:
