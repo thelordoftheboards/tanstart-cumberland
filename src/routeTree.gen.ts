@@ -23,6 +23,7 @@ import { Route as authenticatedDashboardCumberlandExampleLayout3RouteImport } fr
 import { Route as authenticatedDashboardCumberlandExampleLayout2RouteImport } from './routes/(authenticated)/dashboard/cumberland/example-layout-2'
 import { Route as authenticatedDashboardCumberlandExampleLayout1RouteImport } from './routes/(authenticated)/dashboard/cumberland/example-layout-1'
 import { Route as authenticatedDashboardAdminUsersRouteImport } from './routes/(authenticated)/dashboard/admin/users'
+import { Route as ApiV1SystemGlobalClientSettingsIndexRouteImport } from './routes/api/v1/system/global-client-settings/index'
 
 const authenticatedRouteRoute = authenticatedRouteRouteImport.update({
   id: '/(authenticated)',
@@ -100,6 +101,12 @@ const authenticatedDashboardAdminUsersRoute =
     path: '/admin/users',
     getParentRoute: () => authenticatedDashboardRouteRoute,
   } as any)
+const ApiV1SystemGlobalClientSettingsIndexRoute =
+  ApiV1SystemGlobalClientSettingsIndexRouteImport.update({
+    id: '/api/v1/system/global-client-settings/',
+    path: '/api/v1/system/global-client-settings/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -112,8 +119,9 @@ export interface FileRoutesByFullPath {
   '/dashboard/cumberland/example-layout-1': typeof authenticatedDashboardCumberlandExampleLayout1Route
   '/dashboard/cumberland/example-layout-2': typeof authenticatedDashboardCumberlandExampleLayout2Route
   '/dashboard/cumberland/example-layout-3': typeof authenticatedDashboardCumberlandExampleLayout3Route
-  '/dashboard/account': typeof authenticatedDashboardAccountIndexRoute
-  '/dashboard/admin': typeof authenticatedDashboardAdminIndexRoute
+  '/dashboard/account/': typeof authenticatedDashboardAccountIndexRoute
+  '/dashboard/admin/': typeof authenticatedDashboardAdminIndexRoute
+  '/api/v1/system/global-client-settings/': typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -127,6 +135,7 @@ export interface FileRoutesByTo {
   '/dashboard/cumberland/example-layout-3': typeof authenticatedDashboardCumberlandExampleLayout3Route
   '/dashboard/account': typeof authenticatedDashboardAccountIndexRoute
   '/dashboard/admin': typeof authenticatedDashboardAdminIndexRoute
+  '/api/v1/system/global-client-settings': typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -144,6 +153,7 @@ export interface FileRoutesById {
   '/(authenticated)/dashboard/cumberland/example-layout-3': typeof authenticatedDashboardCumberlandExampleLayout3Route
   '/(authenticated)/dashboard/account/': typeof authenticatedDashboardAccountIndexRoute
   '/(authenticated)/dashboard/admin/': typeof authenticatedDashboardAdminIndexRoute
+  '/api/v1/system/global-client-settings/': typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -158,8 +168,9 @@ export interface FileRouteTypes {
     | '/dashboard/cumberland/example-layout-1'
     | '/dashboard/cumberland/example-layout-2'
     | '/dashboard/cumberland/example-layout-3'
-    | '/dashboard/account'
-    | '/dashboard/admin'
+    | '/dashboard/account/'
+    | '/dashboard/admin/'
+    | '/api/v1/system/global-client-settings/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -173,6 +184,7 @@ export interface FileRouteTypes {
     | '/dashboard/cumberland/example-layout-3'
     | '/dashboard/account'
     | '/dashboard/admin'
+    | '/api/v1/system/global-client-settings'
   id:
     | '__root__'
     | '/'
@@ -189,6 +201,7 @@ export interface FileRouteTypes {
     | '/(authenticated)/dashboard/cumberland/example-layout-3'
     | '/(authenticated)/dashboard/account/'
     | '/(authenticated)/dashboard/admin/'
+    | '/api/v1/system/global-client-settings/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -196,6 +209,7 @@ export interface RootRouteChildren {
   authPagesRouteRoute: typeof authPagesRouteRouteWithChildren
   authenticatedRouteRoute: typeof authenticatedRouteRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiV1SystemGlobalClientSettingsIndexRoute: typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -259,14 +273,14 @@ declare module '@tanstack/react-router' {
     '/(authenticated)/dashboard/admin/': {
       id: '/(authenticated)/dashboard/admin/'
       path: '/admin'
-      fullPath: '/dashboard/admin'
+      fullPath: '/dashboard/admin/'
       preLoaderRoute: typeof authenticatedDashboardAdminIndexRouteImport
       parentRoute: typeof authenticatedDashboardRouteRoute
     }
     '/(authenticated)/dashboard/account/': {
       id: '/(authenticated)/dashboard/account/'
       path: '/account'
-      fullPath: '/dashboard/account'
+      fullPath: '/dashboard/account/'
       preLoaderRoute: typeof authenticatedDashboardAccountIndexRouteImport
       parentRoute: typeof authenticatedDashboardRouteRoute
     }
@@ -297,6 +311,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/admin/users'
       preLoaderRoute: typeof authenticatedDashboardAdminUsersRouteImport
       parentRoute: typeof authenticatedDashboardRouteRoute
+    }
+    '/api/v1/system/global-client-settings/': {
+      id: '/api/v1/system/global-client-settings/'
+      path: '/api/v1/system/global-client-settings'
+      fullPath: '/api/v1/system/global-client-settings/'
+      preLoaderRoute: typeof ApiV1SystemGlobalClientSettingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -364,6 +385,8 @@ const rootRouteChildren: RootRouteChildren = {
   authPagesRouteRoute: authPagesRouteRouteWithChildren,
   authenticatedRouteRoute: authenticatedRouteRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiV1SystemGlobalClientSettingsIndexRoute:
+    ApiV1SystemGlobalClientSettingsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

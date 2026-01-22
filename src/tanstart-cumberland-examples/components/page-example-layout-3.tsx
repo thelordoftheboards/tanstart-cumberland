@@ -3,7 +3,7 @@ import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '~/base/com
 import { NavHeadlessFloatingTrigger } from '~/base-nav-and-auth/components/layout-elements';
 import { cn } from '~/lib/utils';
 import { arrLoremIpsum } from '../utils/lorem-ipsum';
-import { OrientationToggle } from './orientation-toggle';
+import { ToggleOrientation } from './toggle-orientation';
 
 export function PageExampleLayout3() {
   const [direction, setDirection] = React.useState<'horizontal' | 'vertical'>('horizontal');
@@ -28,7 +28,7 @@ export function PageExampleLayout3() {
               direction === 'horizontal' ? 'max-h-screen' : 'h-full'
             )}
           >
-            <OrientationToggle direction={direction} setDirection={setDirection} />
+            <ToggleOrientation direction={direction} setDirection={setDirection} />
 
             {arrLoremIpsum[5]}
           </div>
