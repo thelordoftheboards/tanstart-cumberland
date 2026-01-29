@@ -24,6 +24,7 @@ import { Route as authenticatedDashboardTanstartCumberlandExamplesExampleLayout2
 import { Route as authenticatedDashboardTanstartCumberlandExamplesExampleLayout1RouteImport } from './routes/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-1'
 import { Route as authenticatedDashboardAdminUsersRouteImport } from './routes/(authenticated)/dashboard/admin/users'
 import { Route as ApiV1SystemGlobalClientSettingsIndexRouteImport } from './routes/api/v1/system/global-client-settings/index'
+import { Route as ApiV1SystemAboutIndexRouteImport } from './routes/api/v1/system/about/index'
 
 const authenticatedRouteRoute = authenticatedRouteRouteImport.update({
   id: '/(authenticated)',
@@ -113,6 +114,11 @@ const ApiV1SystemGlobalClientSettingsIndexRoute =
     path: '/api/v1/system/global-client-settings/',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ApiV1SystemAboutIndexRoute = ApiV1SystemAboutIndexRouteImport.update({
+  id: '/api/v1/system/about/',
+  path: '/api/v1/system/about/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/tanstart-cumberland-examples/example-layout-3': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout3Route
   '/dashboard/account/': typeof authenticatedDashboardAccountIndexRoute
   '/dashboard/admin/': typeof authenticatedDashboardAdminIndexRoute
+  '/api/v1/system/about/': typeof ApiV1SystemAboutIndexRoute
   '/api/v1/system/global-client-settings/': typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -141,6 +148,7 @@ export interface FileRoutesByTo {
   '/dashboard/tanstart-cumberland-examples/example-layout-3': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout3Route
   '/dashboard/account': typeof authenticatedDashboardAccountIndexRoute
   '/dashboard/admin': typeof authenticatedDashboardAdminIndexRoute
+  '/api/v1/system/about': typeof ApiV1SystemAboutIndexRoute
   '/api/v1/system/global-client-settings': typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 export interface FileRoutesById {
@@ -159,6 +167,7 @@ export interface FileRoutesById {
   '/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-3': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout3Route
   '/(authenticated)/dashboard/account/': typeof authenticatedDashboardAccountIndexRoute
   '/(authenticated)/dashboard/admin/': typeof authenticatedDashboardAdminIndexRoute
+  '/api/v1/system/about/': typeof ApiV1SystemAboutIndexRoute
   '/api/v1/system/global-client-settings/': typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 export interface FileRouteTypes {
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
     | '/dashboard/tanstart-cumberland-examples/example-layout-3'
     | '/dashboard/account/'
     | '/dashboard/admin/'
+    | '/api/v1/system/about/'
     | '/api/v1/system/global-client-settings/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -190,6 +200,7 @@ export interface FileRouteTypes {
     | '/dashboard/tanstart-cumberland-examples/example-layout-3'
     | '/dashboard/account'
     | '/dashboard/admin'
+    | '/api/v1/system/about'
     | '/api/v1/system/global-client-settings'
   id:
     | '__root__'
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-3'
     | '/(authenticated)/dashboard/account/'
     | '/(authenticated)/dashboard/admin/'
+    | '/api/v1/system/about/'
     | '/api/v1/system/global-client-settings/'
   fileRoutesById: FileRoutesById
 }
@@ -215,6 +227,7 @@ export interface RootRouteChildren {
   authPagesRouteRoute: typeof authPagesRouteRouteWithChildren
   authenticatedRouteRoute: typeof authenticatedRouteRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiV1SystemAboutIndexRoute: typeof ApiV1SystemAboutIndexRoute
   ApiV1SystemGlobalClientSettingsIndexRoute: typeof ApiV1SystemGlobalClientSettingsIndexRoute
 }
 
@@ -325,6 +338,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiV1SystemGlobalClientSettingsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/v1/system/about/': {
+      id: '/api/v1/system/about/'
+      path: '/api/v1/system/about'
+      fullPath: '/api/v1/system/about/'
+      preLoaderRoute: typeof ApiV1SystemAboutIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -391,6 +411,7 @@ const rootRouteChildren: RootRouteChildren = {
   authPagesRouteRoute: authPagesRouteRouteWithChildren,
   authenticatedRouteRoute: authenticatedRouteRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiV1SystemAboutIndexRoute: ApiV1SystemAboutIndexRoute,
   ApiV1SystemGlobalClientSettingsIndexRoute:
     ApiV1SystemGlobalClientSettingsIndexRoute,
 }
