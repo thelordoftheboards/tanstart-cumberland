@@ -23,6 +23,7 @@ import { Route as authenticatedDashboardTanstartCumberlandExamplesExampleLayout3
 import { Route as authenticatedDashboardTanstartCumberlandExamplesExampleLayout2RouteImport } from './routes/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-2'
 import { Route as authenticatedDashboardTanstartCumberlandExamplesExampleLayout1RouteImport } from './routes/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-1'
 import { Route as authenticatedDashboardAdminUsersRouteImport } from './routes/(authenticated)/dashboard/admin/users'
+import { Route as authenticatedDashboardAccountAboutRouteImport } from './routes/(authenticated)/dashboard/account/about'
 import { Route as ApiV1SystemGlobalClientSettingsIndexRouteImport } from './routes/api/v1/system/global-client-settings/index'
 import { Route as ApiV1SystemAboutIndexRouteImport } from './routes/api/v1/system/about/index'
 
@@ -108,6 +109,12 @@ const authenticatedDashboardAdminUsersRoute =
     path: '/admin/users',
     getParentRoute: () => authenticatedDashboardRouteRoute,
   } as any)
+const authenticatedDashboardAccountAboutRoute =
+  authenticatedDashboardAccountAboutRouteImport.update({
+    id: '/account/about',
+    path: '/account/about',
+    getParentRoute: () => authenticatedDashboardRouteRoute,
+  } as any)
 const ApiV1SystemGlobalClientSettingsIndexRoute =
   ApiV1SystemGlobalClientSettingsIndexRouteImport.update({
     id: '/api/v1/system/global-client-settings/',
@@ -127,6 +134,7 @@ export interface FileRoutesByFullPath {
   '/signup': typeof authPagesSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard/': typeof authenticatedDashboardIndexRoute
+  '/dashboard/account/about': typeof authenticatedDashboardAccountAboutRoute
   '/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
   '/dashboard/tanstart-cumberland-examples/example-layout-1': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout1Route
   '/dashboard/tanstart-cumberland-examples/example-layout-2': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout2Route
@@ -142,6 +150,7 @@ export interface FileRoutesByTo {
   '/signup': typeof authPagesSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/dashboard': typeof authenticatedDashboardIndexRoute
+  '/dashboard/account/about': typeof authenticatedDashboardAccountAboutRoute
   '/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
   '/dashboard/tanstart-cumberland-examples/example-layout-1': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout1Route
   '/dashboard/tanstart-cumberland-examples/example-layout-2': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout2Route
@@ -161,6 +170,7 @@ export interface FileRoutesById {
   '/(auth-pages)/signup': typeof authPagesSignupRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/(authenticated)/dashboard/': typeof authenticatedDashboardIndexRoute
+  '/(authenticated)/dashboard/account/about': typeof authenticatedDashboardAccountAboutRoute
   '/(authenticated)/dashboard/admin/users': typeof authenticatedDashboardAdminUsersRoute
   '/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-1': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout1Route
   '/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-2': typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout2Route
@@ -179,6 +189,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/auth/$'
     | '/dashboard/'
+    | '/dashboard/account/about'
     | '/dashboard/admin/users'
     | '/dashboard/tanstart-cumberland-examples/example-layout-1'
     | '/dashboard/tanstart-cumberland-examples/example-layout-2'
@@ -194,6 +205,7 @@ export interface FileRouteTypes {
     | '/signup'
     | '/api/auth/$'
     | '/dashboard'
+    | '/dashboard/account/about'
     | '/dashboard/admin/users'
     | '/dashboard/tanstart-cumberland-examples/example-layout-1'
     | '/dashboard/tanstart-cumberland-examples/example-layout-2'
@@ -212,6 +224,7 @@ export interface FileRouteTypes {
     | '/(auth-pages)/signup'
     | '/api/auth/$'
     | '/(authenticated)/dashboard/'
+    | '/(authenticated)/dashboard/account/about'
     | '/(authenticated)/dashboard/admin/users'
     | '/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-1'
     | '/(authenticated)/dashboard/tanstart-cumberland-examples/example-layout-2'
@@ -331,6 +344,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authenticatedDashboardAdminUsersRouteImport
       parentRoute: typeof authenticatedDashboardRouteRoute
     }
+    '/(authenticated)/dashboard/account/about': {
+      id: '/(authenticated)/dashboard/account/about'
+      path: '/account/about'
+      fullPath: '/dashboard/account/about'
+      preLoaderRoute: typeof authenticatedDashboardAccountAboutRouteImport
+      parentRoute: typeof authenticatedDashboardRouteRoute
+    }
     '/api/v1/system/global-client-settings/': {
       id: '/api/v1/system/global-client-settings/'
       path: '/api/v1/system/global-client-settings'
@@ -364,6 +384,7 @@ const authPagesRouteRouteWithChildren = authPagesRouteRoute._addFileChildren(
 
 interface authenticatedDashboardRouteRouteChildren {
   authenticatedDashboardIndexRoute: typeof authenticatedDashboardIndexRoute
+  authenticatedDashboardAccountAboutRoute: typeof authenticatedDashboardAccountAboutRoute
   authenticatedDashboardAdminUsersRoute: typeof authenticatedDashboardAdminUsersRoute
   authenticatedDashboardTanstartCumberlandExamplesExampleLayout1Route: typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout1Route
   authenticatedDashboardTanstartCumberlandExamplesExampleLayout2Route: typeof authenticatedDashboardTanstartCumberlandExamplesExampleLayout2Route
@@ -375,6 +396,8 @@ interface authenticatedDashboardRouteRouteChildren {
 const authenticatedDashboardRouteRouteChildren: authenticatedDashboardRouteRouteChildren =
   {
     authenticatedDashboardIndexRoute: authenticatedDashboardIndexRoute,
+    authenticatedDashboardAccountAboutRoute:
+      authenticatedDashboardAccountAboutRoute,
     authenticatedDashboardAdminUsersRoute:
       authenticatedDashboardAdminUsersRoute,
     authenticatedDashboardTanstartCumberlandExamplesExampleLayout1Route:
